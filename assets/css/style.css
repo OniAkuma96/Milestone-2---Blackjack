@@ -1,0 +1,7 @@
+/* Navigation */
+
+/* Game area */
+
+.game-area-container{
+    height: calc(100vh - 56px);
+}
