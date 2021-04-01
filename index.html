@@ -41,14 +41,13 @@
     <!-- Game area -->
     <div class="container-fluid game-area-container">
         <div class="row start-game-container justify-content-center">
-            <button type="button" class="btn btn-primary btn-lg">Start Game</button>
-            
+            <button type="button" class="btn btn-primary btn-lg" id="btn-start-game">Start Game</button>
             <img src="assets/images/Red_back.jpg" alt="Deck of cards" class="" height="200">
             <button type="button" class="btn btn-primary btn-lg">How to Play</button>
         </div>
-        <div class="row justify-content-center" id="dealer-hand">
-            <img src="assets/images/Red_back.jpg" class="d-none" alt="" height="100">
-            <img src="assets/images/Red_back.jpg" class="d-none" alt="" height="100">
+        <div class="row justify-content-center d-none" id="dealer-hand">
+            <img src="assets/images/Red_back.jpg" class="" alt="" height="100">
+            <img src="assets/images/Red_back.jpg" class="" alt="" height="100">
         </div>
         <div class="row score-choice-deck-container d-none">
             <div class="col-4 score-keeper">
@@ -60,9 +59,9 @@
                 <img src="assets/images/Red_back.jpg" class="float-right" alt="Deck of cards" height="100">
             </div>
         </div>
-        <div class="row justify-content-center fixed-bottom" id="player-hand">
-            <img src="assets/images/Red_back.jpg" class="d-none" alt="" height="200">
-            <img src="assets/images/Red_back.jpg" class="d-none" alt="" height="200">
+        <div class="row justify-content-center fixed-bottom d-none" id="player-hand">
+            <img src="assets/images/Red_back.jpg" class="" alt="" height="200">
+            <img src="assets/images/Red_back.jpg" class="" alt="" height="200">
 
         </div>
     </div>
@@ -70,6 +69,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
+    <script src="assets/js/blackjack.js"></script>
 </body>
 
 </html>
