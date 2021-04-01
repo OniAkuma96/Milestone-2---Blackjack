@@ -1,7 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+/*'Varela Round', sans-serif;*/
+
 /* Navigation */
 
 /* Game area */
 
 .game-area-container{
     height: calc(100vh - 56px);
+    background-color: green;
+}
+
+.start-game-container{
+    position: relative;
+    top: 30%;
+}
+
+.start-game-container button, .start-game-container img{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.start-game-container button{
+    height: 70px;
+    position: relative;
+    top: 50px;
+}
+
+#dealer-hand{
+    padding-top: 5px;
+}
+
+#dealer-hand img{
+    margin: 4px;
+}
+
+.score-choice-deck-container{
+    margin-top: 100px;
+}
+
+.score-keeper{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2vw;
+}
+
+#player-hand img{
+    margin: 4px;
 }
