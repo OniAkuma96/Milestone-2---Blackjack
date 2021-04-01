@@ -61,7 +61,7 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 
 ### Code
 
-- 
+- buildDeck function in blackjack.js from https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
 
 ### Content
 
