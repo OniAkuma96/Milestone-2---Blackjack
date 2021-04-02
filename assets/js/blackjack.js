@@ -2,7 +2,7 @@
 
 // Once page has loaded add event listener to start game button
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("btn-start-game").addEventListener("click", runGame);
 })
 
@@ -18,7 +18,7 @@ function buildDeck() {
 
     for (var i = 0; i < suits.length; i++) {
         for (var x = 0; x < cardNumbers.length; x++) {
-            var card = {cardValue: cardNumbers[x], suit: suits[i]};
+            var card = { cardValue: cardNumbers[x], suit: suits[i] };
             deck.push(card);
         }
     }
@@ -45,7 +45,7 @@ function dealHands() {
 
     var deck = buildDeck();
     deck.sort(() => Math.random() - 0.5)
-    
+
     for (var i = 0; i < 2; i++) {
         var card = deck.pop();
         playerHand.push(card);
@@ -62,7 +62,7 @@ function dealHands() {
 // then displays hands
 
 function displayHands(playerHand, dealerHand) {
-    
+
     var cardJPGName1 = playerHand[0].cardValue + playerHand[0].suit + ".jpg";
     var cardJPGName2 = playerHand[1].cardValue + playerHand[1].suit + ".jpg";
     var dealerCardJPGName1 = dealerHand[0].cardValue + dealerHand[0].suit + ".jpg";
@@ -70,10 +70,28 @@ function displayHands(playerHand, dealerHand) {
     $("#player-hand").html(`<img src="assets/images/deck_of_cards/${cardJPGName1}" height="200"><img src="assets/images/deck_of_cards/${cardJPGName2}" height="200">`);
     $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardJPGName1}" height="200"><img src="assets/images/Red_back.jpg" class="" alt="" height="200">`)
 
-    calculateSumOfHand(playerHand, dealerHand);
+    checkForBlackjack(playerHand, dealerHand);
 }
 
+
 function calculateSumOfHand(playerHand, dealerHand) {
+
+    var playerHandTotal = 0;
+    var dealerHandTotal = 0;
+
+    for (var i = 0; i < playerHand.length; i++) {
+        playerHandTotal += playerHand[i].cardValue;
+    }
+
+    for (var i = 0; i < dealerHand.length; i++) {
+        dealerHandTotal += dealerHand[i].cardValue;
+    }
+
+    console.log("Player hand total is: " + playerHandTotal);
+    console.log("Dealer hand total is: " + dealerHandTotal);
+}
+
+function checkForBlackjack(playerHand, dealerHand) {
 
     for (var i = 0; i < 2; i++) {
         if (playerHand[i].cardValue > 10) {
@@ -87,17 +105,58 @@ function calculateSumOfHand(playerHand, dealerHand) {
 
     var sumOfPlayerHand = playerHand[0].cardValue + playerHand[1].cardValue;
 
-    if (sumOfPlayerHand > 21 && playerHand[0].cardValue == 11) {
+    if (sumOfPlayerHand == 22) {
         playerHand[0].cardValue = 1;
     }
 
     sumOfPlayerHand = playerHand[0].cardValue + playerHand[1].cardValue;
 
-    console.log(sumOfPlayerHand);
-} 
+    for (var i = 0; i < 2; i++) {
+        if (dealerHand[i].cardValue > 10) {
+            dealerHand[i].cardValue = 10;
+        } else if (dealerHand[i].cardValue == 1) {
+            dealerHand[i].cardValue = 11;
+        } else {
+            dealerHand[i].cardValue = dealerHand[i].cardValue;
+        }
+    }
 
-function checkForBlackjack(playerHand, dealerHand) {}
+    var sumofDealerHand = dealerHand[0].cardValue + dealerHand[1].cardValue;
 
-function incrementScore() {}
+    if (sumofDealerHand == 22) {
+        dealerHand[0].cardValue = 1;
+    }
+
+    sumofDealerHand = dealerHand[0].cardValue + dealerHand[1].cardValue;
+
+    if (sumOfPlayerHand == 21 && sumofDealerHand == 21) {
+        console.log("Both dealer and player have Blackjack. It's a tie");
+    } else if (sumOfPlayerHand == 21 && sumofDealerHand != 21) {
+        console.log("Player wins with a blackjack!");
+        incrementPlayerScore();
+    } else if (sumOfPlayerHand != 21 && sumofDealerHand == 21) {
+        console.log("Dealer wins with a blackjack!");
+        incrementDealerScore();
+    } else {
+        calculateSumOfHand(playerHand, dealerHand);
+    }
+}
+
+function incrementPlayerScore() {
+
+    var oldScore = $("#player-h-won").html();
+    $("#player-h-won").html(++oldScore);
+}
+
+function incrementDealerScore() {
+
+    var oldScore = $("#dealer-h-won").html();
+    $("#dealer-h-won").html(++oldScore);
+}
+
+function hitOrStand() {
+
+    //
+}
 
 function hitHand() {}
