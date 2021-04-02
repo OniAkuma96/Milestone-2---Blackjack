@@ -1,9 +1,9 @@
 // Blackjack
 
-// Once page has loaded add event listener to start game button
+// Once page has loaded add click event listener to start game button
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("btn-start-game").addEventListener("click", runGame);
+$(document).ready(() => {
+    $("#btn-start-game").click(runGame);
 })
 
 // buildDeck function taken from https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
@@ -25,7 +25,7 @@ function buildDeck() {
     return deck;
 }
 
-// clears the start game screen and deals hands
+// clears the start game screen, deals hands, and displays
 
 function runGame() {
 
@@ -73,6 +73,7 @@ function displayHands(playerHand, dealerHand) {
     checkForBlackjack(playerHand, dealerHand);
 }
 
+// calculates the sum of all cards in player and dealer hands
 
 function calculateSumOfHand(playerHand, dealerHand) {
 
@@ -90,6 +91,9 @@ function calculateSumOfHand(playerHand, dealerHand) {
     console.log("Player hand total is: " + playerHandTotal);
     console.log("Dealer hand total is: " + dealerHandTotal);
 }
+
+// checks the player/dealer hands for a blackjack (ace + card with value of 10)
+// if a hand contains an ace it will value it at 11 unless the hand has two aces in which case the first ace is valued at 1
 
 function checkForBlackjack(playerHand, dealerHand) {
 
@@ -138,9 +142,12 @@ function checkForBlackjack(playerHand, dealerHand) {
         console.log("Dealer wins with a blackjack!");
         incrementDealerScore();
     } else {
-        calculateSumOfHand(playerHand, dealerHand);
+        hitOrStand(playerHand, dealerHand);
     }
 }
+
+// both increment player/dealer score functions taken from - 
+// this function accumulates hands won by player
 
 function incrementPlayerScore() {
 
@@ -148,15 +155,25 @@ function incrementPlayerScore() {
     $("#player-h-won").html(++oldScore);
 }
 
+// accumulates hands won by dealer
+
 function incrementDealerScore() {
 
     var oldScore = $("#dealer-h-won").html();
     $("#dealer-h-won").html(++oldScore);
 }
 
-function hitOrStand() {
+// player choice hit or stand
 
-    //
+function hitOrStand(playerHand, dealerHand) {
+
+    $(".choice-area").html(`<button type="button" class="btn btn-lg btn-primary" id="btn-player-hit">Hit</button><button type="button" class="btn btn-lg btn-primary" id="btn-player-stand">Stand</button>`);
+    $("#btn-player-hit").click(hitHand);
+
 }
 
-function hitHand() {}
+// adds another card to hand
+
+function hitHand() {
+    console.log("player hit");
+}

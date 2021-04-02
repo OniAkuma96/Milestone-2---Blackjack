@@ -4,7 +4,7 @@ My goal here is to create an interactive single-player Blackjack card game that 
 
 ## UX
 
-This website is for users who want to play Blackjack in their browser. The game will be attractive to the eye and interactive. 
+This website is for users who want to play Blackjack in their browser. The game will be visually simple but attractive to the eye and interactive. 
 
 This game will feature a player, user, and dealer,
 computer opponent. The game will use a single deck of cards with two being dealt to the player, both visible, and two being dealt to the dealer, one visible and one hidden, per hand.
@@ -29,6 +29,7 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 - Navigation bar to move between the site's pages.
 
 - The Blackjack game itself.
+    - Button for users to start the game.
     - Deck of cards with pictures for each card.
     - Player's hand dealt from the deck.
     - Dealer's hand, one card visible to player the other not, to allow the player to strategize.
@@ -62,6 +63,8 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 ### Code
 
 - buildDeck function in blackjack.js from https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
+
+- increment player/dealer score functions taken from 
 
 ### Content
 

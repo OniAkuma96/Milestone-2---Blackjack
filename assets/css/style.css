@@ -3,7 +3,43 @@
 
 /* Navigation */
 
-/* Game area */
+/* Buttons */
+
+.start-game-container button{
+    height: 70px;
+    position: relative;
+    top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#btn-player-hit, #btn-player-stand{
+    margin: 5px;
+    width: 100px;
+    height: 50px;
+    position: relative;
+    top: 25vh;
+}
+
+/* Fonts */
+
+.score-keeper{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2vw;
+}
+
+/* Images */
+
+.start-game-container img{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#dealer-hand img, #player-hand img{
+    margin: 4px;
+}
+
+/* Containers */
 
 .game-area-container{
     height: calc(100vh - 56px);
@@ -15,34 +51,14 @@
     top: 30%;
 }
 
-.start-game-container button, .start-game-container img{
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.start-game-container button{
-    height: 70px;
-    position: relative;
-    top: 50px;
-}
-
 #dealer-hand{
     padding-top: 5px;
-}
-
-#dealer-hand img{
-    margin: 4px;
 }
 
 .score-choice-deck-container{
     margin-top: 100px;
 }
 
-.score-keeper{
-    font-family: 'Varela Round', sans-serif;
-    font-size: 2vw;
-}
+.choice-area{}
 
-#player-hand img{
-    margin: 4px;
-}
+/* Media queries */
