@@ -25,7 +25,7 @@ function buildDeck() {
     return deck;
 }
 
-// clears the start game screen, deals hands, and displays
+// clears the start game screen, deals hands
 
 function runGame() {
 
@@ -35,6 +35,8 @@ function runGame() {
     $("#player-hand").removeClass("d-none");
     dealInitialHands();
 }
+
+// deals a hand of two cards from deck
 
 function dealHand(deck) {
 
@@ -79,8 +81,8 @@ function displayHands(playerHand, dealerHand, deck) {
     $("#player-hand").html(`<img src="assets/images/deck_of_cards/${playerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${playerCardTwoJPG}" height="200">`);
     $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/Red_back.jpg" class="" alt="" height="200">`);
 
-    var playerBlackjack = checkForBlackjackTest(playerHand);
-    var dealerBlackjack = checkForBlackjackTest(dealerHand);
+    var playerBlackjack = checkForBlackjack(playerHand);
+    var dealerBlackjack = checkForBlackjack(dealerHand);
 
     if (playerBlackjack == true && dealerBlackjack == true) {
         console.log("Both player and dealer have blackjack. It's a push");
@@ -97,7 +99,7 @@ function displayHands(playerHand, dealerHand, deck) {
 
 // checks a hand for blackjack (ace + card with value 10)
 
-function checkForBlackjackTest(hand) {
+function checkForBlackjack(hand) {
 
     for (var i = 0; i < 2; i++) {
         if (hand[i].cardValue > 10) {
@@ -120,25 +122,6 @@ function checkForBlackjackTest(hand) {
     } else {
         return false;
     }
-}
-
-// calculates the sum of all cards in player and dealer hands
-
-function calculateSumOfHand(playerHand, dealerHand) {
-
-    var playerHandTotal = 0;
-    var dealerHandTotal = 0;
-
-    for (var i = 0; i < playerHand.length; i++) {
-        playerHandTotal += playerHand[i].cardValue;
-    }
-
-    for (var i = 0; i < dealerHand.length; i++) {
-        dealerHandTotal += dealerHand[i].cardValue;
-    }
-
-    console.log("Player hand total is: " + playerHandTotal);
-    console.log("Dealer hand total is: " + dealerHandTotal);
 }
 
 // both increment player/dealer score functions taken from - 
@@ -164,20 +147,25 @@ function hitOrStand(playerHand, dealerHand, deck) {
 
     $(".choice-area").html(`<button type="button" class="btn btn-lg btn-primary" id="btn-player-hit">Hit</button><button type="button" class="btn btn-lg btn-primary" id="btn-player-stand">Stand</button>`);
     $("#btn-player-hit").click(() => {
-        hitHand(playerHand, dealerHand, deck);
+        playerHand = hitHand(playerHand, deck);
+        displayPlayerHitCard(playerHand);
     });
 }
 
 // adds another card to hand
 
-function hitHand(playerHand, dealerHand, deck) {
+function hitHand(hand, deck) {
     
     var card = deck.pop();
-    playerHand.push(card);
-    
+    hand.push(card);
+    return hand;
 }
 
-function displayHitCard(playerHand) {
+function displayPlayerHitCard(playerHand) {
 
-    $("#player-hand").html();
+    var hitCardJPGName = getCardJPGName(playerHand, playerHand.length - 1);
+    console.log(hitCardJPGName);
+    
+    $("#player-hand").append(`<img src="assets/images/deck_of_cards/${hitCardJPGName}" height="200">`);
+
 }
