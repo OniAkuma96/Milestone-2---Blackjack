@@ -33,44 +33,93 @@ function runGame() {
     $("#dealer-hand").removeClass("d-none");
     $(".score-choice-deck-container").removeClass("d-none");
     $("#player-hand").removeClass("d-none");
-    dealHands();
+    dealInitialHands();
+}
+
+function dealHand(deck) {
+
+    var hand = [];
+
+    for (var i = 0; i < 2; i++) {
+        var card = deck.pop();
+        hand.push(card);
+    }
+    return hand;
 }
 
 // shuffles the deck and removes 4 cards, 2 for each hand
 
-function dealHands() {
-
-    var playerHand = [];
-    var dealerHand = [];
+function dealInitialHands() {
 
     var deck = buildDeck();
     deck.sort(() => Math.random() - 0.5)
 
-    for (var i = 0; i < 2; i++) {
-        var card = deck.pop();
-        playerHand.push(card);
-    }
+    var playerHand = dealHand(deck);
+    var dealerHand = dealHand(deck);
 
-    for (var i = 0; i < 2; i++) {
-        var card = deck.pop();
-        dealerHand.push(card);
-    }
-    displayHands(playerHand, dealerHand);
+    displayHands(playerHand, dealerHand, deck);
 }
 
-// takes the keys and values of card objects in hand arrays, builds string that corresponds to image name
-// then displays hands
+// builds string that corresponds to card image
 
-function displayHands(playerHand, dealerHand) {
+function getCardJPGName(hand, cardNum) {
 
-    var cardJPGName1 = playerHand[0].cardValue + playerHand[0].suit + ".jpg";
-    var cardJPGName2 = playerHand[1].cardValue + playerHand[1].suit + ".jpg";
-    var dealerCardJPGName1 = dealerHand[0].cardValue + dealerHand[0].suit + ".jpg";
+    var cardJPGName = hand[cardNum].cardValue + hand[cardNum].suit + ".jpg";
+    return cardJPGName;
+}
 
-    $("#player-hand").html(`<img src="assets/images/deck_of_cards/${cardJPGName1}" height="200"><img src="assets/images/deck_of_cards/${cardJPGName2}" height="200">`);
-    $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardJPGName1}" height="200"><img src="assets/images/Red_back.jpg" class="" alt="" height="200">`)
+// displays initial hands and check both for blackjack
 
-    checkForBlackjack(playerHand, dealerHand);
+function displayHands(playerHand, dealerHand, deck) {
+
+    var playerCardOneJPG = getCardJPGName(playerHand, 0);
+    var playerCardTwoJPG = getCardJPGName(playerHand, 1);
+    var dealerCardOneJPG = getCardJPGName(dealerHand, 0);
+
+    $("#player-hand").html(`<img src="assets/images/deck_of_cards/${playerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${playerCardTwoJPG}" height="200">`);
+    $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/Red_back.jpg" class="" alt="" height="200">`);
+
+    var playerBlackjack = checkForBlackjackTest(playerHand);
+    var dealerBlackjack = checkForBlackjackTest(dealerHand);
+
+    if (playerBlackjack == true && dealerBlackjack == true) {
+        console.log("Both player and dealer have blackjack. It's a push");
+    } else if (playerBlackjack == true && dealerBlackjack == false) {
+        console.log("Player wins with blackjack!");
+        incrementPlayerScore();
+    } else if (playerBlackjack == false && dealerBlackjack == true) {
+        console.log("dealer wins with blackjack");
+        incrementDealerScore();
+    } else {
+        hitOrStand(playerHand, dealerHand, deck);
+    }
+}
+
+// checks a hand for blackjack (ace + card with value 10)
+
+function checkForBlackjackTest(hand) {
+
+    for (var i = 0; i < 2; i++) {
+        if (hand[i].cardValue > 10) {
+            hand[i].cardValue = 10;
+        } else if (hand[i].cardValue == 1) {
+            hand[i].cardValue = 11;
+        }
+    }
+
+    var sumOfHand = hand[0].cardValue + hand[1].cardValue;
+
+    if (sumOfHand > 21) {
+        hand[0].cardValue = 1;
+    }
+
+    sumOfHand = hand[0].cardValue + hand[1].cardValue;
+
+    if (sumOfHand == 21) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // calculates the sum of all cards in player and dealer hands
@@ -92,60 +141,6 @@ function calculateSumOfHand(playerHand, dealerHand) {
     console.log("Dealer hand total is: " + dealerHandTotal);
 }
 
-// checks the player/dealer hands for a blackjack (ace + card with value of 10)
-// if a hand contains an ace it will value it at 11 unless the hand has two aces in which case the first ace is valued at 1
-
-function checkForBlackjack(playerHand, dealerHand) {
-
-    for (var i = 0; i < 2; i++) {
-        if (playerHand[i].cardValue > 10) {
-            playerHand[i].cardValue = 10;
-        } else if (playerHand[i].cardValue == 1) {
-            playerHand[i].cardValue = 11;
-        } else {
-            playerHand[i].cardValue = playerHand[i].cardValue;
-        }
-    }
-
-    var sumOfPlayerHand = playerHand[0].cardValue + playerHand[1].cardValue;
-
-    if (sumOfPlayerHand == 22) {
-        playerHand[0].cardValue = 1;
-    }
-
-    sumOfPlayerHand = playerHand[0].cardValue + playerHand[1].cardValue;
-
-    for (var i = 0; i < 2; i++) {
-        if (dealerHand[i].cardValue > 10) {
-            dealerHand[i].cardValue = 10;
-        } else if (dealerHand[i].cardValue == 1) {
-            dealerHand[i].cardValue = 11;
-        } else {
-            dealerHand[i].cardValue = dealerHand[i].cardValue;
-        }
-    }
-
-    var sumofDealerHand = dealerHand[0].cardValue + dealerHand[1].cardValue;
-
-    if (sumofDealerHand == 22) {
-        dealerHand[0].cardValue = 1;
-    }
-
-    sumofDealerHand = dealerHand[0].cardValue + dealerHand[1].cardValue;
-
-    if (sumOfPlayerHand == 21 && sumofDealerHand == 21) {
-        console.log("Both dealer and player have Blackjack. It's a tie");
-    } else if (sumOfPlayerHand == 21 && sumofDealerHand != 21) {
-        console.log("Player wins with a blackjack!");
-        incrementPlayerScore();
-    } else if (sumOfPlayerHand != 21 && sumofDealerHand == 21) {
-        console.log("Dealer wins with a blackjack!");
-        incrementDealerScore();
-    } else {
-        hitOrStand(playerHand, dealerHand);
-    }
-}
-
 // both increment player/dealer score functions taken from - 
 // this function accumulates hands won by player
 
@@ -165,15 +160,24 @@ function incrementDealerScore() {
 
 // player choice hit or stand
 
-function hitOrStand(playerHand, dealerHand) {
+function hitOrStand(playerHand, dealerHand, deck) {
 
     $(".choice-area").html(`<button type="button" class="btn btn-lg btn-primary" id="btn-player-hit">Hit</button><button type="button" class="btn btn-lg btn-primary" id="btn-player-stand">Stand</button>`);
-    $("#btn-player-hit").click(hitHand);
-
+    $("#btn-player-hit").click(() => {
+        hitHand(playerHand, dealerHand, deck);
+    });
 }
 
 // adds another card to hand
 
-function hitHand() {
-    console.log("player hit");
+function hitHand(playerHand, dealerHand, deck) {
+    
+    var card = deck.pop();
+    playerHand.push(card);
+    
+}
+
+function displayHitCard(playerHand) {
+
+    $("#player-hand").html();
 }
