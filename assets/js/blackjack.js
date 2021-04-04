@@ -88,18 +88,29 @@ function displayHands(playerHand, dealerHand, deck) {
 
     if (playerBlackjack == true && dealerBlackjack == true) {
         $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
-        $(".choice-area").html(`<p>Both player and dealer have Blackjack. The hand is tied.</p>`);
+        $(".choice-area").removeClass("d-flex");
+        $(".choice-area").html(`<p>Both player and dealer have Blackjack. The hand is tied.</p><button type="button" class="btn btn-lg btn-primary" id="btn-play-again">Play again</button>`);
     } else if (playerBlackjack == true && dealerBlackjack == false) {
         $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
-        $(".choice-area").html(`<p>Player wins the hand with Blackjack!</p>`);
+        $(".choice-area").removeClass("d-flex");
+        $(".choice-area").html(`<p>Player wins the hand with Blackjack!</p><button type="button" class="btn btn-lg btn-primary" id="btn-play-again">Play again</button>`);
         incrementPlayerScore();
     } else if (playerBlackjack == false && dealerBlackjack == true) {
         $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
-        $(".choice-area").html(`<p>Dealer wins the hand with Blackjack!</p>`);
+        $(".choice-area").removeClass("d-flex");
+        $(".choice-area").html(`<p>Dealer wins the hand with Blackjack!</p><button type="button" class="btn btn-lg btn-primary" id="btn-play-again">Play again</button>`);
         incrementDealerScore();
     } else {
         hitOrStand(playerHand, dealerHand, deck);
     }
+
+    $("#btn-play-again").click(() => {
+        //
+        $("#player-hand").html("");
+        $("#dealer-hand").html("");
+        $(".choice-area").html("");
+        dealInitialHands();
+    });
 }
 
 // checks a hand for blackjack (ace + card with value 10)
@@ -177,6 +188,7 @@ function incrementDealerScore() {
 
 function hitOrStand(playerHand, dealerHand, deck) {
 
+    $(".choice-area").addClass("d-flex");
     $(".choice-area").html(`<button type="button" class="btn btn-lg btn-primary" id="btn-player-hit">Hit</button><button type="button" class="btn btn-lg btn-primary" id="btn-player-stand">Stand</button>`);
     $("#btn-player-hit").click(() => {
         playerHand = hitHand(playerHand, deck);
@@ -229,22 +241,37 @@ function calculateWinner(playerHand, dealerHand) {
     var dealerTotal = calculateSumOfHand(dealerHand);
 
     if (playerTotal > 21 && dealerTotal > 21) {
+        $(".choice-area").removeClass("d-flex");
         $(".choice-area").html(`<p>Player score is ${playerTotal}, dealer score is ${dealerTotal}. Both player and dealer are bust, the hand is a tie.</p>`);
     } else if (playerTotal <= 21 && dealerTotal > 21) {
+        $(".choice-area").removeClass("d-flex");
         $(".choice-area").html(`<p>Player score is ${playerTotal}, dealer score is ${dealerTotal}. Dealer is bust, player wins!</p>`);
         incrementPlayerScore();
     } else if (playerTotal > 21 && dealerTotal <= 21) {
+        $(".choice-area").removeClass("d-flex");
         $(".choice-area").html(`<p>Player score is ${playerTotal}, dealer score is ${dealerTotal}. Player is bust, dealer wins!</p>`);
         incrementDealerScore();
     } else if (playerTotal <= 21 && dealerTotal <= 21) {
         if (playerTotal == dealerTotal) {
+            $(".choice-area").removeClass("d-flex");
             $(".choice-area").html(`<p>Player score is ${playerTotal}, dealer score is ${dealerTotal}. The hand is tied.</p>`);
         } else if (playerTotal > dealerTotal) {
+            $(".choice-area").removeClass("d-flex");
             $(".choice-area").html(`<p>Player score is ${playerTotal}, dealer score is ${dealerTotal}. Player wins the hand!</p>`);
             incrementPlayerScore();
         } else if (dealerTotal > playerTotal) {
+            $(".choice-area").removeClass("d-flex");
             $(".choice-area").html(`<p>Player score is ${playerTotal}, dealer score is ${dealerTotal}. Dealer wins the hand!</p>`);
             incrementDealerScore();
         }
     }
+
+    $(".choice-area").append(`<button type="button" class="btn btn-lg btn-primary d-block" id="btn-play-again">Play again</button>`);
+    $("#btn-play-again").click(() => {
+        
+        $("#player-hand").html("");
+        $("#dealer-hand").html("");
+        $(".choice-area").html("");
+        dealInitialHands();
+    });
 }
