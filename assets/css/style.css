@@ -28,6 +28,11 @@
     font-size: 2vw;
 }
 
+.choice-area p{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2vw;
+}
+
 /* Images */
 
 .start-game-container img{
