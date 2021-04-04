@@ -21,6 +21,10 @@
     top: 25vh;
 }
 
+#btn-play-again {
+    margin: auto;
+}
+
 /* Fonts */
 
 .score-keeper{
@@ -31,6 +35,7 @@
 .choice-area p{
     font-family: 'Varela Round', sans-serif;
     font-size: 2vw;
+    text-align: center;
 }
 
 /* Images */
