@@ -88,14 +88,14 @@ function displayHands(playerHand, dealerHand, deck) {
 
     if (playerBlackjack == true && dealerBlackjack == true) {
         $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
-        console.log("Both player and dealer have blackjack. It's a push");
+        $(".choice-area").html(`<p>Both player and dealer have Blackjack. The hand is tied.</p>`);
     } else if (playerBlackjack == true && dealerBlackjack == false) {
         $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
-        console.log("Player wins with blackjack!");
+        $(".choice-area").html(`<p>Player wins the hand with Blackjack!</p>`);
         incrementPlayerScore();
     } else if (playerBlackjack == false && dealerBlackjack == true) {
         $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
-        console.log("dealer wins with blackjack");
+        $(".choice-area").html(`<p>Dealer wins the hand with Blackjack!</p>`);
         incrementDealerScore();
     } else {
         hitOrStand(playerHand, dealerHand, deck);
@@ -229,21 +229,21 @@ function calculateWinner(playerHand, dealerHand) {
     var dealerTotal = calculateSumOfHand(dealerHand);
 
     if (playerTotal > 21 && dealerTotal > 21) {
-        console.log("player and dealer are bust. push")
+        $(".choice-area").html(`<p>Player score is ${playerTotal}, dealer score is ${dealerTotal}. Both player and dealer are bust, the hand is a tie.</p>`);
     } else if (playerTotal <= 21 && dealerTotal > 21) {
-        console.log("dealer is bust. player wins");
+        $(".choice-area").html(`<p>Player score is ${playerTotal}, dealer score is ${dealerTotal}. Dealer is bust, player wins!</p>`);
         incrementPlayerScore();
     } else if (playerTotal > 21 && dealerTotal <= 21) {
-        console.log("player is bust");
+        $(".choice-area").html(`<p>Player score is ${playerTotal}, dealer score is ${dealerTotal}. Player is bust, dealer wins!</p>`);
         incrementDealerScore();
     } else if (playerTotal <= 21 && dealerTotal <= 21) {
         if (playerTotal == dealerTotal) {
-            console.log("push");
+            $(".choice-area").html(`<p>Player score is ${playerTotal}, dealer score is ${dealerTotal}. The hand is tied.</p>`);
         } else if (playerTotal > dealerTotal) {
-            console.log("player wins");
+            $(".choice-area").html(`<p>Player score is ${playerTotal}, dealer score is ${dealerTotal}. Player wins the hand!</p>`);
             incrementPlayerScore();
         } else if (dealerTotal > playerTotal) {
-            console.log("dealer wins");
+            $(".choice-area").html(`<p>Player score is ${playerTotal}, dealer score is ${dealerTotal}. Dealer wins the hand!</p>`);
             incrementDealerScore();
         }
     }
