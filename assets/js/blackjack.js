@@ -13,6 +13,7 @@ function buildDeck() {
 
     var suits = ["C", "D", "H", "S"];
     var cardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+    //var cardNumbers = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
     var deck = new Array();
 
@@ -77,6 +78,7 @@ function displayHands(playerHand, dealerHand, deck) {
     var playerCardOneJPG = getCardJPGName(playerHand, 0);
     var playerCardTwoJPG = getCardJPGName(playerHand, 1);
     var dealerCardOneJPG = getCardJPGName(dealerHand, 0);
+    var dealerCardTwoJPG = getCardJPGName(dealerHand, 1);
 
     $("#player-hand").html(`<img src="assets/images/deck_of_cards/${playerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${playerCardTwoJPG}" height="200">`);
     $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/Red_back.jpg" class="" alt="" height="200">`);
@@ -85,11 +87,14 @@ function displayHands(playerHand, dealerHand, deck) {
     var dealerBlackjack = checkForBlackjack(dealerHand);
 
     if (playerBlackjack == true && dealerBlackjack == true) {
+        $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
         console.log("Both player and dealer have blackjack. It's a push");
     } else if (playerBlackjack == true && dealerBlackjack == false) {
+        $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
         console.log("Player wins with blackjack!");
         incrementPlayerScore();
     } else if (playerBlackjack == false && dealerBlackjack == true) {
+        $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
         console.log("dealer wins with blackjack");
         incrementDealerScore();
     } else {
@@ -101,27 +106,54 @@ function displayHands(playerHand, dealerHand, deck) {
 
 function checkForBlackjack(hand) {
 
+    var sumOfHandBj = 0;
+
     for (var i = 0; i < 2; i++) {
-        if (hand[i].cardValue > 10) {
-            hand[i].cardValue = 10;
-        } else if (hand[i].cardValue == 1) {
-            hand[i].cardValue = 11;
+        if (hand[i].cardValue >= 10) {
+            sumOfHandBj += 10;
+        } else if (hand[i].cardValue > 1 && hand[i].cardValue < 10) {
+            sumOfHandBj += hand[i].cardValue;
+        } else {
+            if (sumOfHandBj == 11) {
+                sumOfHandBj += 1;
+            } else {
+                sumOfHandBj += 11;
+            }
         }
     }
 
-    var sumOfHand = hand[0].cardValue + hand[1].cardValue;
-
-    if (sumOfHand > 21) {
-        hand[0].cardValue = 1;
-    }
-
-    sumOfHand = hand[0].cardValue + hand[1].cardValue;
-
-    if (sumOfHand == 21) {
+    if (sumOfHandBj == 21) {
         return true;
     } else {
         return false;
     }
+}
+
+// returns the sum of a hand, auto ace will be 11 or 1 depending on the sum of the hand
+
+function calculateSumOfHand(hand) {
+
+    var sumOfHand = 0;
+
+    for (var i = 0; i < hand.length; i++) {
+        if (hand[i].cardValue > 9) {
+            sumOfHand += 10;
+        } else if (hand[i].cardValue < 10 && hand[i].cardValue != 1) {
+            sumOfHand += hand[i].cardValue;
+        } else if (hand[i].cardValue == 1) {
+            if (sumOfHand < 11) {
+                sumOfHand += 11;
+            } else if (sumOfHand > 10) {
+                sumOfHand += 1;
+            }
+        }
+
+        if (sumOfHand > 21 && hand[i].cardValue == 1) {
+            sumOfHand -= 10;
+        }
+    }
+
+    return sumOfHand;
 }
 
 // both increment player/dealer score functions taken from - 
@@ -148,11 +180,21 @@ function hitOrStand(playerHand, dealerHand, deck) {
     $(".choice-area").html(`<button type="button" class="btn btn-lg btn-primary" id="btn-player-hit">Hit</button><button type="button" class="btn btn-lg btn-primary" id="btn-player-stand">Stand</button>`);
     $("#btn-player-hit").click(() => {
         playerHand = hitHand(playerHand, deck);
-        displayPlayerHitCard(playerHand);
+        var hitCardJPGName = getCardJPGName(playerHand, playerHand.length - 1);
+        $("#player-hand").append(`<img src="assets/images/deck_of_cards/${hitCardJPGName}" height="200">`);
+        var playerTotal = calculateSumOfHand(playerHand);
+        if (playerTotal >= 21) {
+            dealerHand = hitDealerUpToSixteen(dealerHand, deck);
+            calculateWinner(playerHand, dealerHand);
+        }
+    });
+    $("#btn-player-stand").click(() => {
+        dealerHand = hitDealerUpToSixteen(dealerHand, deck);
+        calculateWinner(playerHand, dealerHand);
     });
 }
 
-// adds another card to hand
+// adds another card to hand from deck
 
 function hitHand(hand, deck) {
     
@@ -161,11 +203,48 @@ function hitHand(hand, deck) {
     return hand;
 }
 
-function displayPlayerHitCard(playerHand) {
+//
 
-    var hitCardJPGName = getCardJPGName(playerHand, playerHand.length - 1);
-    console.log(hitCardJPGName);
-    
-    $("#player-hand").append(`<img src="assets/images/deck_of_cards/${hitCardJPGName}" height="200">`);
+function hitDealerUpToSixteen(dealerHand, deck) {
 
+    var dealerCardOneJPG = getCardJPGName(dealerHand, 0);
+    var dealerCardTwoJPG = getCardJPGName(dealerHand, 1);
+    $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
+
+    var dealerTotal = calculateSumOfHand(dealerHand);
+    while (dealerTotal <= 16) {
+        dealerHand = hitHand(dealerHand, deck);
+        var dealerHitCard = getCardJPGName(dealerHand, dealerHand.length - 1);
+        $("#dealer-hand").append(`<img src="assets/images/deck_of_cards/${dealerHitCard}" height="200">`);
+        dealerTotal = calculateSumOfHand(dealerHand);
+    }
+    return dealerHand;
+}
+
+// calculates the winner of the hand and increments correct score
+
+function calculateWinner(playerHand, dealerHand) {
+
+    var playerTotal = calculateSumOfHand(playerHand);
+    var dealerTotal = calculateSumOfHand(dealerHand);
+
+    if (playerTotal > 21 && dealerTotal > 21) {
+        console.log("player and dealer are bust. push")
+    } else if (playerTotal <= 21 && dealerTotal > 21) {
+        console.log("dealer is bust. player wins");
+        incrementPlayerScore();
+    } else if (playerTotal > 21 && dealerTotal <= 21) {
+        console.log("player is bust");
+        incrementDealerScore();
+    } else if (playerTotal <= 21 && dealerTotal <= 21) {
+        if (playerTotal == dealerTotal) {
+            console.log("push");
+        } else if (playerTotal > dealerTotal) {
+            console.log("player wins");
+            incrementPlayerScore();
+        } else if (dealerTotal > playerTotal) {
+            console.log("dealer wins");
+            incrementDealerScore();
+        }
+    }
 }
