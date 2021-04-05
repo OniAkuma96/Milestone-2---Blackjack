@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-/*'Varela Round', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Varela+Round&display=swap');
+/*'Varela Round', sans-serif;
+'Anton', sans-serif;*/
 
 /* Navigation */
 
@@ -27,6 +28,16 @@
 
 /* Fonts */
 
+.page-header{
+    font-family: 'Anton', sans-serif;
+    font-size: 3vw;
+    padding-bottom: 10px;
+    color: white;
+
+    /* style rule for black text border - https://stackoverflow.com/questions/4772906/css-is-it-possible-to-add-a-black-outline-around-each-character-in-text */
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
 .score-keeper{
     font-family: 'Varela Round', sans-serif;
     font-size: 2vw;
@@ -36,6 +47,18 @@
     font-family: 'Varela Round', sans-serif;
     font-size: 2vw;
     text-align: center;
+}
+
+#how-to-play-header{
+    margin-top: 5px;
+}
+
+.rules-heading{}
+
+.rules-paragraph{
+    padding: 10px;
+    font-size: 20px;
+    line-height: 60px;
 }
 
 /* Images */
@@ -51,7 +74,7 @@
 
 /* Containers */
 
-.game-area-container{
+.game-area-container, .how-to-play-container, .contact-container{
     height: calc(100vh - 56px);
     background-color: green;
 }
@@ -59,6 +82,7 @@
 .start-game-container{
     position: relative;
     top: 30%;
+    padding: 20px;
 }
 
 #dealer-hand{
@@ -70,5 +94,21 @@
 }
 
 .choice-area{}
+
+.how-to-play-container{}
+
+.rules-container{
+    background-color: rgb(85, 167, 85);
+    height: 70vh;
+    width: 70vw;
+}
+
+.carousel-inner{
+    padding: 10px;
+}
+
+.carousel-item{
+    padding: 20px;
+}
 
 /* Media queries */

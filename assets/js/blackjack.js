@@ -89,16 +89,16 @@ function displayHands(playerHand, dealerHand, deck) {
     if (playerBlackjack == true && dealerBlackjack == true) {
         $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
         $(".choice-area").removeClass("d-flex");
-        $(".choice-area").html(`<p>Both player and dealer have Blackjack. The hand is tied.</p><button type="button" class="btn btn-lg btn-primary" id="btn-play-again">Play again</button>`);
+        $(".choice-area").html(`<p>Both player and dealer have Blackjack. The hand is tied.</p><button type="button" class="btn btn-lg btn-primary d-block" id="btn-play-again">Play again</button>`);
     } else if (playerBlackjack == true && dealerBlackjack == false) {
         $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
         $(".choice-area").removeClass("d-flex");
-        $(".choice-area").html(`<p>Player wins the hand with Blackjack!</p><button type="button" class="btn btn-lg btn-primary" id="btn-play-again">Play again</button>`);
+        $(".choice-area").html(`<p>Player wins the hand with Blackjack!</p><button type="button" class="btn btn-lg btn-primary d-block" id="btn-play-again">Play again</button>`);
         incrementPlayerScore();
     } else if (playerBlackjack == false && dealerBlackjack == true) {
         $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
         $(".choice-area").removeClass("d-flex");
-        $(".choice-area").html(`<p>Dealer wins the hand with Blackjack!</p><button type="button" class="btn btn-lg btn-primary" id="btn-play-again">Play again</button>`);
+        $(".choice-area").html(`<p>Dealer wins the hand with Blackjack!</p><button type="button" class="btn btn-lg btn-primary d-block" id="btn-play-again">Play again</button>`);
         incrementDealerScore();
     } else {
         hitOrStand(playerHand, dealerHand, deck);
@@ -167,7 +167,7 @@ function calculateSumOfHand(hand) {
     return sumOfHand;
 }
 
-// both increment player/dealer score functions taken from - 
+// both increment player/dealer score functions taken from - https://github.com/Code-Institute-Solutions/JS-Essentials-Project/blob/master/13-Tidying%20Up/script.js
 // this function accumulates hands won by player
 
 function incrementPlayerScore() {

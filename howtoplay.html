@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Play | Blackjack</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">Blackjack</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">current page</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="howtoplay.html">How to Play</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid how-to-play-container">
+        <div class="row">
+            <div class="col">
+                <h1 class="page-header text-center" id="how-to-play-header">The Rules</h1>
+            </div>
+        </div>
+        <div class="row rules-container mx-auto">
+            <div class="col">
+                <div class="carousel slide" id="carouselControls" data-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active text-center">
+                            <h2 class="rules-header">Dealing</h2>
+                            <p class="rules-paragraph">To start the game, click on the start game button<br>This game uses only one
+                                deck with two hands of two cards dealt to the player and dealer
+                                <br>The goal of Blackjack is to get your hand as close to 21 without going over
+                                <br>You are playing against the dealer so whoever has the highest hand, without going bust (over 21), wins the hand!
+                                <br>Picture cards, Jack/Queen/King, count as 10 so a hand of 10 of Hearts and King of Spades will equate to 20
+                                <br>Aces can count as 11 or 1 depending on the sum of your hand, this is done automatically
+                                <br>If your hand consists of one card equal to 10 and an Ace you just got a Blackjack and instantly win the round!
+                                <br>Unless the dealer has a Blackjack too, in which case the hand is tied
+                            </p>
+                        </div>
+                        <div class="carousel-item text-center">
+                            <h2 class="rules-header">Hit or Stand</h2>
+                            <p class="rules-paragraph">Once the initial hands have been dealt, without a Blackjack, the game moves to phase two
+                                <br>The player now has a choice to hit or stand
+                                <br>Hit will add another card from the deck to your hand
+                                <br>You can hit as many times as you want but be careful, you don't want to go bust!
+                                <br>Once you're happy with your hand you can stand
+                            </p>
+                        </div>
+                        <div class="carousel-item text-center">
+                            <h2 class="rules-header"></h2>
+                            <p class="rules-paragraph">Slide three</p>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous slide</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next slide</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Blackjack</title>
+    <title>Contact Us | Blackjack</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -22,13 +22,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="index.html">Home <span class="sr-only">current page</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="howtoplay.html">How to Play</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="contact.html">Contact Us</a>
                     </li>
                 </ul>
@@ -36,34 +36,15 @@
         </nav>
     </header>
 
-    <!-- Game area -->
-    <div class="container-fluid game-area-container">
-        <div class="row start-game-container justify-content-center">
-            <h1 class="page-header">Welcome to Blackjack</h1>
+    <div class="container-fluid contact-container">
+        <div class="row">
+            <div class="col"></div>
         </div>
-        <div class="row start-game-container justify-content-center">
-            <button type="button" class="btn btn-primary btn-lg" id="btn-start-game">Start Game</button>
-            <img src="assets/images/Red_back.jpg" alt="Deck of cards" class="" height="200">
-            <button type="button" class="btn btn-primary btn-lg">How to Play</button>
-        </div>
-        <div class="row justify-content-center d-none" id="dealer-hand"></div>
-        <div class="row score-choice-deck-container d-none">
-            <div class="col-4 score-keeper">
-                <p class="scores">Player hands won: <span id="player-h-won">0</span></p>
-                <p class="scores">Dealer hands won: <span id="dealer-h-won">0</span></p>
-            </div>
-            <div class="col-4 choice-area d-flex justify-content-center"></div>
-            <div class="col-4">
-                <img src="assets/images/Red_back.jpg" class="float-right" alt="Deck of cards" height="200">
-            </div>
-        </div>
-        <div class="row justify-content-center fixed-bottom d-none" id="player-hand"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
-    <script src="assets/js/blackjack.js"></script>
 </body>
 
 </html>
