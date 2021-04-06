@@ -43,8 +43,8 @@
         </div>
         <div class="row start-game-container justify-content-center">
             <button type="button" class="btn btn-primary btn-lg" id="btn-start-game">Start Game</button>
-            <img src="assets/images/Red_back.jpg" alt="Deck of cards" class="" height="200">
-            <button type="button" class="btn btn-primary btn-lg">How to Play</button>
+            <img src="assets/images/Red_back.jpg" alt="Deck of cards" class="d-none d-sm-block" height="200">
+            <button type="button" class="btn btn-primary btn-lg" id="how-to-play-btn">How to Play</button>
         </div>
         <div class="row justify-content-center d-none" id="dealer-hand"></div>
         <div class="row score-choice-deck-container d-none">
@@ -53,9 +53,7 @@
                 <p class="scores">Dealer hands won: <span id="dealer-h-won">0</span></p>
             </div>
             <div class="col-4 choice-area d-flex justify-content-center"></div>
-            <div class="col-4">
-                <img src="assets/images/Red_back.jpg" class="float-right" alt="Deck of cards" height="200">
-            </div>
+            <div class="col-4"></div>
         </div>
         <div class="row justify-content-center fixed-bottom d-none" id="player-hand"></div>
     </div>

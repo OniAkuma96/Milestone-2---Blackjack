@@ -30,8 +30,9 @@
 
 .page-header{
     font-family: 'Anton', sans-serif;
-    font-size: 3vw;
+    font-size: 50px;
     padding-bottom: 10px;
+    margin: 10px;
     color: white;
 
     /* style rule for black text border - https://stackoverflow.com/questions/4772906/css-is-it-possible-to-add-a-black-outline-around-each-character-in-text */
@@ -41,12 +42,14 @@
 .score-keeper{
     font-family: 'Varela Round', sans-serif;
     font-size: 2vw;
+    color: white;
 }
 
 .choice-area p{
     font-family: 'Varela Round', sans-serif;
     font-size: 2vw;
     text-align: center;
+    color: white;
 }
 
 #how-to-play-header{
@@ -74,8 +77,12 @@
 
 /* Containers */
 
-.game-area-container, .how-to-play-container, .contact-container{
+.game-area-container, .contact-container{
     height: calc(100vh - 56px);
+    background-color: green;
+}
+
+.how-to-play-container{
     background-color: green;
 }
 
@@ -97,10 +104,13 @@
 
 .how-to-play-container{}
 
-.rules-container{
-    background-color: rgb(85, 167, 85);
-    height: 70vh;
+.rules-container, .contact-form-container{
+    background-color: whitesmoke;
     width: 70vw;
+}
+
+.contact-form-container{
+    height: 75vh;
 }
 
 .carousel-inner{
@@ -111,4 +121,28 @@
     padding: 20px;
 }
 
+/* Form */
+
+
+
 /* Media queries */
+
+@media (max-width: 484px) {
+    .page-header{
+        font-size: 9vw;
+    }
+
+    #player-hand img, #dealer-hand img{
+        height: 100px;
+    }
+
+    .score-keeper{
+        font-size: 4vw;
+    }
+}
+
+@media (max-width: 391px) {
+    .start-game-container button{
+        margin: 5px;
+    }
+}

@@ -22,6 +22,14 @@ The site will feature three pages, a play area where the user can play Blackjack
 submit a form to send an automated email to the dev team. The site will be minimalistic only displaying relevant info to the user and will use green colours like the card
 tables at casinos to try recreate the feel of a casino. I will use images for the deck of cards.
 
+### User Stories
+
+- As a user...
+
+### Wireframes
+
+- Wireframes for this project can be found in the [Wireframes folder](assets/images/wireframes)
+
 ## Features
 
 ### Existing Features
@@ -31,7 +39,6 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 - The Blackjack game itself.
     - Button for users to start the game.
     - Deck of cards with pictures for each card.
-    - Player's hand dealt from the deck.
     - Dealer's hand, one card visible to player the other not, to allow the player to strategize.
     - Buttons for player choices, hit and stand.
     - Score keeping function to keep track of hands won by player and dealer.
@@ -50,9 +57,13 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 
 - [CSS](https://en.wikipedia.org/wiki/CSS)
 
+- [Javascript](https://www.javascript.com/)
+
 - [Bootstrap v4.6](https://getbootstrap.com/)
 
 - [jQuery](https://jquery.com/)
+
+- [Google fonts](https://fonts.google.com/)
 
 ## Testing
 
@@ -62,12 +73,14 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 
 ### Code
 
-- buildDeck function in blackjack.js from https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
+- buildDeck function in blackjack.js from - https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
 
-- increment player/dealer score functions taken from 
+- increment player/dealer score functions taken from - https://github.com/Code-Institute-Solutions/JS-Essentials-Project/blob/master/13-Tidying%20Up/script.js
 
 ### Content
 
 ### Media
+
+- [images for cards](http://acbl.mybigcommerce.com/52-playing-cards/)
 
 ### Acknowledgements

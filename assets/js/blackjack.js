@@ -4,6 +4,9 @@
 
 $(document).ready(() => {
     $("#btn-start-game").click(runGame);
+    $("#how-to-play-btn").click(() => {
+        window.location.href="howtoplay.html";
+    });
 })
 
 // buildDeck function taken from https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
@@ -55,6 +58,8 @@ function dealHand(deck) {
 function dealInitialHands() {
 
     var deck = buildDeck();
+
+    // shuffle the deck
     deck.sort(() => Math.random() - 0.5)
 
     var playerHand = dealHand(deck);
@@ -105,7 +110,7 @@ function displayHands(playerHand, dealerHand, deck) {
     }
 
     $("#btn-play-again").click(() => {
-        //
+        
         $("#player-hand").html("");
         $("#dealer-hand").html("");
         $(".choice-area").html("");
