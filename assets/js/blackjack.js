@@ -271,7 +271,7 @@ function calculateWinner(playerHand, dealerHand) {
         }
     }
 
-    $(".choice-area").append(`<button type="button" class="btn btn-lg btn-primary d-block" id="btn-play-again">Play again</button>`);
+    $(".choice-area").append(`<button type="button" class="btn btn-lg btn-primary d-block btn-responsive" id="btn-play-again">Play again</button>`);
     $("#btn-play-again").click(() => {
         
         $("#player-hand").html("");

@@ -139,6 +139,57 @@
     .score-keeper{
         font-size: 4vw;
     }
+
+    .btn-responsive{
+        padding: 2px 4px;
+        font-size: 90%;
+    }
+
+    #btn-player-stand, #btn-player-hit{
+        top: 20vh;
+    }
+
+    .choice-area p{
+        font-size: 12px;
+    }
+
+    .rules-container{
+        width: 90vw;
+    }
+
+    .rules-container h2{
+        font-size: 18px;
+    }
+
+    .rules-container p{
+        font-size: 14px;
+        line-height: 30px;
+    }
+
+    .contact-form-container{
+        width: 90vw;
+    }
+
+    .contact-form-container, h3{
+        font-size: 22px;
+    }
+
+    .contact-form-container label, .contact-form-container input, .contact-form-container div{
+        font-size: 16px;
+    }
+
+    .contact-form-container input, .contact-form-container textarea{
+        width: 80%;
+    }
+
+    .contact-form-container textarea{
+        height: 50%;
+    }
+
+    .contact-form-container button{
+        position: relative;
+        bottom: 150px;
+    }
 }
 
 @media (max-width: 391px) {
