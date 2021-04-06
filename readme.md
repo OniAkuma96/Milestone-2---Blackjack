@@ -65,6 +65,8 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 
 - [Google fonts](https://fonts.google.com/)
 
+- [EmailJs](https://www.emailjs.com/)
+
 ## Testing
 
 ## Deployment
@@ -76,6 +78,8 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 - buildDeck function in blackjack.js from - https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
 
 - increment player/dealer score functions taken from - https://github.com/Code-Institute-Solutions/JS-Essentials-Project/blob/master/13-Tidying%20Up/script.js
+
+- script for sending email with EmailJs - https://github.com/Code-Institute-Solutions/InteractiveFrontendDevelopment-Resume/blob/master/03-SendingEmailsUsingEmailJS/06-sending_emails/assets/js/sendEmail.js
 
 ### Content
 

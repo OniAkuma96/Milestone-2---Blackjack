@@ -49,54 +49,33 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <form class="p-2 text-center">
+                <form class="p-2 text-center" onsubmit="return sendEmail(this);">
                     <div class="form-row mt-3">
                         <div class="form-group col-md-6">
                             <label for="user-input-email" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="user-input-email" placeholder="Required"
+                            <input type="email" class="form-control" id="user-input-email" name="emailaddress" placeholder="Required"
                                 aria-describedby="email-help" required>
                             <div id="email-help" class="form-text"><small class="text-muted">Your email address is confidential</small></div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="user-input-name" class="form-label">Your name</label>
-                            <input type="text" class="form-control" id="user-input-name" placeholder="Optional"
+                            <input type="text" class="form-control" id="user-input-name" name="name" placeholder="Optional"
                                 aria-describedby="name-help">
                             <div id="name-help" class="form-text sr-only">Enter your name. This is optional</div>
                         </div>
                         <div class="form-group col-12">
                             <label for="user-text-area" class="form-label">Write your message here</label>
-                            <textarea class="form-control" id="user-text-area" placeholder="Required..." rows="15" aria-describedby="text-area-help" required></textarea>
+                            <textarea class="form-control" id="user-text-area" name="message" placeholder="Required..." rows="15" aria-describedby="text-area-help" required></textarea>
                             <div id="text-area-help" class="form-text sr-only">Write your message here</div>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
-            <!--<div class="row">
-                <div class="col">
-                    <form class="text-center">
-                        <div class="mb-2">
-                            <label for="user-input-email" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="user-input-email" placeholder="Required" aria-describedby="email-help" required>
-                            <div id="email-help" class="form-text">Your email address is confidential</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="user-input-name" class="form-label">Your name</label>
-                            <input type="text" class="form-control" id="user-input-name" placeholder="Optional" aria-describedby="name-help">
-                            <div id="name-help" class="form-text sr-only">Enter your name. This is optional</div>
-                        </div>
-                        <div class="mb-4">
-                            <label for="user-text-area" class="form-label">Write your message here</label>
-                            <textarea class="form-control" id="user-text-area" placeholder="Required... Write your message here" rows="10" aria-describedby="text-area-help" required></textarea>
-                            <div id="text-area-help" class="form-text sr-only">Write your message here</div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div>-->
         </div>
     </div>
 
+    <script src="assets/js/formSendEmail.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
