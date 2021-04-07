@@ -194,7 +194,7 @@ function incrementDealerScore() {
 function hitOrStand(playerHand, dealerHand, deck) {
 
     $(".choice-area").addClass("d-flex");
-    $(".choice-area").html(`<button type="button" class="btn btn-lg btn-primary" id="btn-player-hit">Hit</button><button type="button" class="btn btn-lg btn-primary" id="btn-player-stand">Stand</button>`);
+    $(".choice-area").html(`<button type="button" class="btn btn-lg btn-primary btn-responsive" id="btn-player-hit">Hit</button><button type="button" class="btn btn-lg btn-primary btn-responsive" id="btn-player-stand">Stand</button>`);
     $("#btn-player-hit").click(() => {
         playerHand = hitHand(playerHand, deck);
         var hitCardJPGName = getCardJPGName(playerHand, playerHand.length - 1);

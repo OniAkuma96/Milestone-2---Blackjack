@@ -17,9 +17,6 @@
 #btn-player-hit, #btn-player-stand{
     margin: 5px;
     width: 100px;
-    height: 50px;
-    position: relative;
-    top: 25vh;
 }
 
 #btn-play-again {
@@ -127,6 +124,12 @@
 
 /* Media queries */
 
+@media (max-width: 769px) {
+    .contact-form-container{
+        width: 90vw;
+    }
+}
+
 @media (max-width: 484px) {
     .page-header{
         font-size: 9vw;
@@ -145,8 +148,12 @@
         font-size: 90%;
     }
 
-    #btn-player-stand, #btn-player-hit{
-        top: 20vh;
+    #btn-player-hit, #btn-player-stand{
+        height: 70px;
+    }
+
+    .choice-area{
+        padding: 0;
     }
 
     .choice-area p{
@@ -166,11 +173,11 @@
         line-height: 30px;
     }
 
-    .contact-form-container{
-        width: 90vw;
+    .contact-container{
+        height: 100vh;
     }
 
-    .contact-form-container, h3{
+    .contact-form-container h3{
         font-size: 22px;
     }
 
@@ -180,6 +187,7 @@
 
     .contact-form-container input, .contact-form-container textarea{
         width: 80%;
+        display: inline;
     }
 
     .contact-form-container textarea{

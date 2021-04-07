@@ -69,6 +69,10 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 
 ## Testing
 
+### Bugs discovered
+
+- Bug in the game - the calculate sum of hand function doesn't correctly value Aces as 1 when hand is above 21 so player/dealer will be bust when they shouldn't be.
+
 ## Deployment
 
 ## Credits
