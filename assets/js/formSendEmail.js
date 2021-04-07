@@ -9,10 +9,12 @@ function sendEmail(contactForm) {
     })
     .then(
         function(response) {
-            console.log("success", response);
+            alert("Your message has been sent");
+            console.log("SUCCESS", response);
         },
         function(error) {
-            console.log("failed", error);
+            alert("Your message failed to send");
+            console.log("FAILED", error);
         }
     );
     return false;
