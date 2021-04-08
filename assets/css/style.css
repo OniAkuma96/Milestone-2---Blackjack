@@ -124,6 +124,12 @@
 
 /* Media queries */
 
+@media (min-width: 1200px) {
+    .how-to-play-container{
+        height: calc(100vh - 56px);
+    }
+}
+
 @media (max-width: 769px) {
     .contact-form-container{
         width: 90vw;
