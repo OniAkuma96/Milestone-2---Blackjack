@@ -53,12 +53,11 @@
     margin-top: 5px;
 }
 
-.rules-heading{}
-
 .rules-paragraph{
+    font-family: 'Valera Round', sans-serif;
     padding: 10px;
     font-size: 20px;
-    line-height: 60px;
+    line-height: 50px;
 }
 
 /* Images */
@@ -97,12 +96,13 @@
     margin-top: 100px;
 }
 
-.choice-area{}
-
-.how-to-play-container{}
-
-.rules-container, .contact-form-container{
+.rules-container{
     background-color: whitesmoke;
+    width: 90vw;
+}
+
+.contact-form-container{
+    background-color: lightblue;
     width: 70vw;
 }
 
@@ -110,23 +110,22 @@
     height: 75vh;
 }
 
-.carousel-inner{
-    padding: 10px;
-}
-
-.carousel-item{
-    padding: 20px;
+.rule-section{
+    padding: 2px;
+    border: 1px solid black;
 }
 
 /* Form */
-
-
 
 /* Media queries */
 
 @media (min-width: 1200px) {
     .how-to-play-container{
         height: calc(100vh - 56px);
+    }
+
+    .rules-container{
+        margin-top: 20px;
     }
 }
 
@@ -164,10 +163,6 @@
 
     .choice-area p{
         font-size: 12px;
-    }
-
-    .rules-container{
-        width: 90vw;
     }
 
     .rules-container h2{
