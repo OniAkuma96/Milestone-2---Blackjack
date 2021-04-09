@@ -10,9 +10,7 @@ function sendEmail(contactForm) {
     .then(
         function(response) {
             alert("Your message has been sent");
-            $("#user-input-email").html("");
-            $("#user-input-name").html("");
-            $("#user-text-area").html("");
+            $("#user-form").trigger("reset");
             console.log("SUCCESS", response);
         },
         function(error) {
