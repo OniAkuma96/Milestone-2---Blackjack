@@ -220,7 +220,7 @@ function hitHand(hand, deck) {
     return hand;
 }
 
-//
+// hits the dealer hand until sum is equal to or greater than 17
 
 function hitDealerUpToSixteen(dealerHand, deck) {
 
