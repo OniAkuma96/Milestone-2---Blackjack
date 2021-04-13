@@ -25,20 +25,61 @@
             <div class="row start-game-container justify-content-center">
                 <button type="button" class="btn btn-primary btn-lg btn-responsive" id="btn-start-game">Start
                     Game</button>
-                <button type="button" class="btn btn-primary btn-lg btn-responsive" id="how-to-play-btn">How to
+                <button type="button" class="btn btn-primary btn-lg btn-responsive" id="how-to-play-btn"
+                    data-toggle="modal" data-target="#how-to-play-modal">How to
                     Play</button>
             </div>
         </div>
         <div class="row justify-content-center d-none" id="dealer-hand"></div>
+        <p class="scores d-none">Dealer hands won: <span id="dealer-h-won">0</span></p>
         <div class="row score-choice-deck-container d-none">
             <div class="col-4 score-keeper">
-                <p class="scores">Player hands won: <span id="player-h-won">0</span></p>
-                <p class="scores">Dealer hands won: <span id="dealer-h-won">0</span></p>
+                <!--<p class="scores">Dealer hands won: <span id="dealer-h-won">0</span></p>
+                <p class="scores">Player hands won: <span id="player-h-won">0</span></p>-->
             </div>
             <div class="col-4 choice-area d-flex justify-content-center"></div>
             <div class="col-4"></div>
         </div>
-        <div class="row justify-content-center fixed-bottom d-none" id="player-hand"></div>
+        <p class="scores d-none">Player hands won: <span id="player-h-won">0</span></p>
+        <div class="row justify-content-center d-none" id="player-hand"></div>
+
+        <!-- Contact form alert -->
+        <div class="alert alert-info fixed-bottom" role="alert">
+            Noticed a bug while playing or just want to ask a question? <a href="contact.html" class="alert-link">Click
+                here to contact us</a>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="how-to-play-modal" tabindex="-1" role="dialog" aria-labelledby="how-to-play-modal-label"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="how-to-play-modal-label">Rules</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="modal-title">Dealing</h6>
+                    <p>1) To start the game, click on the start game button
+                        <br>2) The aim of Blackjack is to get your cards to add up to 21
+                        <br>3) Jack/Queen/King count as 10
+                        <br>4) Aces count as 1 or 11 depending on the sum of your hand
+                        <br>5) If you have an ace and a card with a value of 10 that's a Blackjack and you win!</p>
+                    <h6 class="modal-title">Hit or stand</h6>
+                    <p>1) Once the initial hands have been dealt, without a Blackjack, the game moves to phase two
+                        <br>2) You now have a choice to hit (add another card to your hand) or stand
+                        <br>3) It's a good idea to look at the dealer's shown card and strategize
+                        <br>4) Once you are happy with your hand you can stand and the winner is decided</p>
+                    <h6 class="modal-title">Deciding the winner</h6>
+                    <p>1) Before deciding the winner the dealer must hit or stand
+                        <br>2) The dealer has to hit on 16
+                        <br>3) Once the dealer has finished the player with the highest hand under 21 wins!</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

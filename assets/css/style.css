@@ -4,6 +4,15 @@
 
 /* Navigation */
 
+.home-link{
+    color: white;
+    font-size: 28px;
+}
+
+.home-link:hover{
+    color: grey;
+}
+
 /* Buttons */
 
 .start-game-container button{
@@ -36,7 +45,7 @@
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
-.score-keeper{
+.scores{
     font-family: 'Varela Round', sans-serif;
     font-size: 2vw;
     color: white;
@@ -73,9 +82,16 @@
 
 /* Containers */
 
-.game-area-container, .contact-container{
+.game-area-container{
     height: 100vh;
     background-color: green;
+}
+
+.game-area-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
 }
 
 .how-to-play-container{
@@ -95,6 +111,10 @@
     padding-top: 5px;
 }
 
+#player-hand{
+    margin-bottom: 20px;
+}
+
 .score-choice-deck-container{
     margin-top: 100px;
 }
@@ -104,17 +124,24 @@
     width: 90vw;
 }
 
-.contact-form-container{
-    background-color: lightblue;
-    width: 70vw;
+.contact-container{
+    min-height: 100vh;
+    background-color: green;
 }
 
 .contact-form-container{
-    height: 75vh;
+    background-color: white;
+    width: 70vw;
 }
 
 .rule-section{
     padding: 2px;
+}
+
+/* Alerts */
+
+.alert{
+    margin-bottom: 0;
 }
 
 /* Form */
@@ -138,15 +165,23 @@
 }
 
 @media (max-width: 484px) {
+    .game-area-container{
+        padding: 15px;
+    }
+
     .page-header{
         font-size: 9vw;
+    }
+
+    #player-hand{
+        padding-bottom: 10px;
     }
 
     #player-hand img, #dealer-hand img{
         height: 100px;
     }
 
-    .score-keeper{
+    .scores{
         font-size: 4vw;
     }
 
@@ -167,6 +202,11 @@
         font-size: 12px;
     }
 
+    .alert{
+        font-size: 12px;
+        padding: 3px;
+    }
+
     .rules-container h2{
         font-size: 18px;
     }
@@ -174,10 +214,6 @@
     .rules-container p{
         font-size: 14px;
         line-height: 30px;
-    }
-
-    .contact-container{
-        height: 100vh;
     }
 
     .contact-form-container h3{

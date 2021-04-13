@@ -4,9 +4,6 @@
 
 $(document).ready(() => {
     $("#btn-start-game").click(runGame);
-    $("#how-to-play-btn").click(() => {
-        window.location.href="howtoplay.html";
-    });
 })
 
 // buildDeck function taken from https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
@@ -37,6 +34,7 @@ function runGame() {
     $(".start-game-items-wrap").addClass("d-none");
     $("#dealer-hand").removeClass("d-none");
     $(".score-choice-deck-container").removeClass("d-none");
+    $(".scores").removeClass("d-none");
     $("#player-hand").removeClass("d-none");
     dealInitialHands();
 }
@@ -95,16 +93,16 @@ function displayHands(playerHand, dealerHand, deck) {
     if (playerBlackjack == true && dealerBlackjack == true) {
         $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
         $(".choice-area").removeClass("d-flex");
-        $(".choice-area").html(`<p>Both player and dealer have Blackjack. The hand is tied.</p><button type="button" class="btn btn-lg btn-primary d-block" id="btn-play-again">Play again</button>`);
+        $(".choice-area").html(`<p>Both player and dealer have Blackjack. The hand is tied.</p><button type="button" class="btn btn-lg btn-primary d-block btn-responsive" id="btn-play-again">Play again</button>`);
     } else if (playerBlackjack == true && dealerBlackjack == false) {
         $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
         $(".choice-area").removeClass("d-flex");
-        $(".choice-area").html(`<p>Player wins the hand with Blackjack!</p><button type="button" class="btn btn-lg btn-primary d-block" id="btn-play-again">Play again</button>`);
+        $(".choice-area").html(`<p>Player wins the hand with Blackjack!</p><button type="button" class="btn btn-lg btn-primary d-block btn-responsive" id="btn-play-again">Play again</button>`);
         incrementPlayerScore();
     } else if (playerBlackjack == false && dealerBlackjack == true) {
         $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
         $(".choice-area").removeClass("d-flex");
-        $(".choice-area").html(`<p>Dealer wins the hand with Blackjack!</p><button type="button" class="btn btn-lg btn-primary d-block" id="btn-play-again">Play again</button>`);
+        $(".choice-area").html(`<p>Dealer wins the hand with Blackjack!</p><button type="button" class="btn btn-lg btn-primary d-block btn-responsive" id="btn-play-again">Play again</button>`);
         incrementDealerScore();
     } else {
         hitOrStand(playerHand, dealerHand, deck);

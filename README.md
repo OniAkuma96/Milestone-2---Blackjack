@@ -103,6 +103,9 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 - [Google fonts](https://fonts.google.com/)
     - For a variety of fonts
 
+- [Font Awsome]()
+    - For icons
+
 - [EmailJs](https://www.emailjs.com/)
     - For automated email in contact form
 
