@@ -9,7 +9,6 @@ function sendEmail(contactForm) {
     })
     .then(
         function(response) {
-            alert("Your message has been sent");
             $("#user-form").trigger("reset");
             console.log("SUCCESS", response);
         },
