@@ -34,6 +34,7 @@ function buildDeck() {
 function runGame() {
 
     $(".start-game-container").addClass("d-none");
+    $(".start-game-items-wrap").addClass("d-none");
     $("#dealer-hand").removeClass("d-none");
     $(".score-choice-deck-container").removeClass("d-none");
     $("#player-hand").removeClass("d-none");
@@ -150,6 +151,7 @@ function checkForBlackjack(hand) {
 function calculateSumOfHand(hand) {
 
     var sumOfHand = 0;
+    var hasAnAce = hand.some(eachHand => eachHand.cardValue === 1);
 
     for (var i = 0; i < hand.length; i++) {
         if (hand[i].cardValue > 9) {
@@ -164,7 +166,7 @@ function calculateSumOfHand(hand) {
             }
         }
 
-        if (sumOfHand > 21 && hand[i].cardValue == 1) {
+        if (sumOfHand > 21 && hasAnAce) {
             sumOfHand -= 10;
         }
     }

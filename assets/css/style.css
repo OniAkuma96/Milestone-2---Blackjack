@@ -74,7 +74,7 @@
 /* Containers */
 
 .game-area-container, .contact-container{
-    height: calc(100vh - 56px);
+    height: 100vh;
     background-color: green;
 }
 
@@ -83,9 +83,12 @@
 }
 
 .start-game-container{
-    position: relative;
-    top: 30%;
-    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.start-game-items-wrap{
+    padding-top: 20vh;
 }
 
 #dealer-hand{
@@ -120,7 +123,7 @@
 
 @media (min-width: 1200px) {
     .how-to-play-container{
-        height: calc(100vh - 56px);
+        height: 100vh;
     }
 
     .rules-container{

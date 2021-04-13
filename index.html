@@ -7,44 +7,27 @@
     <title>Home | Blackjack</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 </head>
 
 <body>
-    <header>
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Blackjack</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">current page</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="howtoplay.html">How to Play</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
 
     <!-- Game area -->
     <div class="container-fluid game-area-container">
-        <div class="row start-game-container justify-content-center">
-            <h1 class="page-header">Welcome to Blackjack</h1>
-        </div>
-        <div class="row start-game-container justify-content-center">
-            <button type="button" class="btn btn-primary btn-lg btn-responsive" id="btn-start-game">Start Game</button>
-            <img src="assets/images/Red_back.jpg" alt="Deck of cards" class="d-none d-sm-block" height="200">
-            <button type="button" class="btn btn-primary btn-lg btn-responsive" id="how-to-play-btn">How to Play</button>
+        <div class="start-game-items-wrap">
+            <div class="row start-game-container justify-content-center">
+                <h1 class="page-header">Welcome to Blackjack</h1>
+            </div>
+            <div class="row start-game-container justify-content-center">
+                <img src="assets/images/Red_back.jpg" alt="Deck of cards" class="d-none d-sm-block mx-auto"
+                    height="200">
+            </div>
+            <div class="row start-game-container justify-content-center">
+                <button type="button" class="btn btn-primary btn-lg btn-responsive" id="btn-start-game">Start
+                    Game</button>
+                <button type="button" class="btn btn-primary btn-lg btn-responsive" id="how-to-play-btn">How to
+                    Play</button>
+            </div>
         </div>
         <div class="row justify-content-center d-none" id="dealer-hand"></div>
         <div class="row score-choice-deck-container d-none">
@@ -58,6 +41,7 @@
         <div class="row justify-content-center fixed-bottom d-none" id="player-hand"></div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
