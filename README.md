@@ -2,6 +2,8 @@
 
 My goal here is to create an interactive single-player Blackjack card game that users, myself included, can play in their browser.
 
+![Mockup](/assets/images/amiresponsiveblackjackms2.png)
+
 ## UX
 
 This website is for users who want to play Blackjack in their browser. The game will be visually simple but attractive to the eye and interactive. 
