@@ -34,7 +34,31 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 
 ### Wireframes
 
-- Wireframes for this project can be found in the [Wireframes folder](assets/images/wireframes)
+- These are the wireframes that I made for this project. Can be found in /assets/wireframes
+
+![Homepage Web](/assets/wireframes/aaastartgamescreenweb1920.png)
+
+![Game Web](/assets/wireframes/bbbplaygamescreenweb1920.png)
+
+![Rules Web](/assets/wireframes/cccrulesweb1920.png)
+
+![Contact Web](/assets/wireframes/dddcontactweb1920.png)
+
+![Homepage iPad](/assets/wireframes/aastartgamescreenipad.png)
+
+![Game iPad](/assets/wireframes/bbplaygamescreenipad.png)
+
+![Rules iPad](/assets/wireframes/ccrulesipad.png)
+
+![Contact iPad](/assets/wireframes/ddcontactipad.png)
+
+![Homepage iPhone](/assets/wireframes/astartgamescreeniphone.png)
+
+![Game iPhone](/assets/wireframes/bplaygamescreeniphone.png)
+
+![Rules iPhone](/assets/wireframes/crulesiphone.png)
+
+![Contact iPhone](/assets/wireframes/dcontactiphone.png)
 
 ## Features
 
@@ -107,7 +131,7 @@ I have also tested on an iPad, a Macbook Air, and my mobile phone (Samsung Galax
 
 ### Bugs discovered
 
-- Bug in the game - the calculate sum of hand function doesn't correctly value Aces as 1 when hand is above 21 so player/dealer will be bust when they shouldn't be.
+- Bug in the game - the calculate sum of hand function doesn't correctly if the first card in hand is Ace. It should automatically change the value to 1 but will bust instead
 
 ## Deployment
 
