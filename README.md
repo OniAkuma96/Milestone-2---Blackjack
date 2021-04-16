@@ -116,6 +116,8 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 
 ## Testing
 
+To validate my code I used [W3 HTML validator](https://validator.w3.org/), [Jigsaw validator](https://jigsaw.w3.org/css-validator/), and [Esprima Syntax Validator](https://esprima.org/demo/validate.html)
+
 I used Google Chrome browser on my desktop PC throughout the process of making this site so I know everything works well on that side of things.
 I have tested the game and all other features using the inspect feature offered by Chrome too to test different screen sizes.
 I have also tested on an iPad, a Macbook Air, and my mobile phone (Samsung Galaxy J3 2016)

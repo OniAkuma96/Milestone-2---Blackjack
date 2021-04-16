@@ -4,7 +4,7 @@
 
 $(document).ready(() => {
     $("#btn-start-game").click(runGame);
-})
+});
 
 // buildDeck function taken from https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
 // builds deck of 52 cards with keys of suit and values of number
@@ -59,7 +59,7 @@ function dealInitialHands() {
     var deck = buildDeck();
 
     // shuffle the deck
-    deck.sort(() => Math.random() - 0.5)
+    deck.sort(() => Math.random() - 0.5);
 
     var playerHand = dealHand(deck);
     var dealerHand = dealHand(deck);
