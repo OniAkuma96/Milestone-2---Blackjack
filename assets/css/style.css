@@ -58,17 +58,6 @@
     color: white;
 }
 
-#how-to-play-header{
-    margin-top: 5px;
-}
-
-.rules-paragraph{
-    font-family: 'Valera Round', sans-serif;
-    padding: 10px;
-    font-size: 20px;
-    line-height: 50px;
-}
-
 /* Images */
 
 .start-game-container img{
@@ -94,10 +83,6 @@
     padding: 30px;
 }
 
-.how-to-play-container{
-    background-color: green;
-}
-
 .start-game-container{
     display: flex;
     align-items: center;
@@ -119,11 +104,6 @@
     margin-top: 100px;
 }
 
-.rules-container{
-    background-color: whitesmoke;
-    width: 90vw;
-}
-
 .contact-container{
     min-height: 100vh;
     background-color: green;
@@ -134,29 +114,13 @@
     width: 70vw;
 }
 
-.rule-section{
-    padding: 2px;
-}
-
 /* Alerts */
 
 .alert{
     margin-bottom: 0;
 }
 
-/* Form */
-
 /* Media queries */
-
-@media (min-width: 1200px) {
-    .how-to-play-container{
-        height: 100vh;
-    }
-
-    .rules-container{
-        margin-top: 20px;
-    }
-}
 
 @media (max-width: 769px) {
     .contact-form-container{
@@ -167,6 +131,10 @@
 @media (max-width: 484px) {
     .game-area-container{
         padding: 15px;
+    }
+
+    #homepage-card{
+        height: 140px;
     }
 
     .page-header{
@@ -191,7 +159,7 @@
     }
 
     #btn-player-hit, #btn-player-stand{
-        height: 70px;
+        height: 45px;
     }
 
     .choice-area{
@@ -205,15 +173,6 @@
     .alert{
         font-size: 12px;
         padding: 3px;
-    }
-
-    .rules-container h2{
-        font-size: 18px;
-    }
-
-    .rules-container p{
-        font-size: 14px;
-        line-height: 30px;
     }
 
     .contact-form-container h3{

@@ -1,25 +1,21 @@
 // Blackjack
 
 // Once page has loaded add click event listener to start game button
-
 $(document).ready(() => {
     $("#btn-start-game").click(runGame);
 });
 
 // buildDeck function taken from https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
 // builds deck of 52 cards with keys of suit and values of number
-
 function buildDeck() {
-
     var suits = ["C", "D", "H", "S"];
     var cardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-    //var cardNumbers = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
     var deck = new Array();
 
     for (var i = 0; i < suits.length; i++) {
-        for (var x = 0; x < cardNumbers.length; x++) {
-            var card = { cardValue: cardNumbers[x], suit: suits[i] };
+        for (var j = 0; j < cardNumbers.length; j++) {
+            var card = { cardValue: cardNumbers[j], suit: suits[i] };
             deck.push(card);
         }
     }
@@ -27,9 +23,7 @@ function buildDeck() {
 }
 
 // clears the start game screen, deals hands
-
 function runGame() {
-
     $(".start-game-container").addClass("d-none");
     $(".start-game-items-wrap").addClass("d-none");
     $("#dealer-hand").removeClass("d-none");
@@ -40,9 +34,7 @@ function runGame() {
 }
 
 // deals a hand of two cards from deck
-
 function dealHand(deck) {
-
     var hand = [];
 
     for (var i = 0; i < 2; i++) {
@@ -53,9 +45,7 @@ function dealHand(deck) {
 }
 
 // shuffles the deck and removes 4 cards, 2 for each hand
-
 function dealInitialHands() {
-
     var deck = buildDeck();
 
     // shuffle the deck
@@ -68,17 +58,13 @@ function dealInitialHands() {
 }
 
 // builds string that corresponds to card image
-
 function getCardJPGName(hand, cardNum) {
-
     var cardJPGName = hand[cardNum].cardValue + hand[cardNum].suit + ".jpg";
     return cardJPGName;
 }
 
 // displays initial hands and check both for blackjack
-
 function displayHands(playerHand, dealerHand, deck) {
-
     var playerCardOneJPG = getCardJPGName(playerHand, 0);
     var playerCardTwoJPG = getCardJPGName(playerHand, 1);
     var dealerCardOneJPG = getCardJPGName(dealerHand, 0);
@@ -118,26 +104,24 @@ function displayHands(playerHand, dealerHand, deck) {
 }
 
 // checks a hand for blackjack (ace + card with value 10)
-
 function checkForBlackjack(hand) {
-
-    var sumOfHandBj = 0;
+    var sumOfHand = 0;
 
     for (var i = 0; i < 2; i++) {
         if (hand[i].cardValue >= 10) {
-            sumOfHandBj += 10;
+            sumOfHand += 10;
         } else if (hand[i].cardValue > 1 && hand[i].cardValue < 10) {
-            sumOfHandBj += hand[i].cardValue;
+            sumOfHand += hand[i].cardValue;
         } else {
-            if (sumOfHandBj == 11) {
-                sumOfHandBj += 1;
+            if (sumOfHand == 11) {
+                sumOfHand += 1;
             } else {
-                sumOfHandBj += 11;
+                sumOfHand += 11;
             }
         }
     }
 
-    if (sumOfHandBj == 21) {
+    if (sumOfHand == 21) {
         return true;
     } else {
         return false;
@@ -145,9 +129,7 @@ function checkForBlackjack(hand) {
 }
 
 // returns the sum of a hand, auto ace will be 11 or 1 depending on the sum of the hand
-
 function calculateSumOfHand(hand) {
-
     var sumOfHand = 0;
     var hasAnAce = hand.some(eachHand => eachHand.cardValue === 1);
 
@@ -174,25 +156,19 @@ function calculateSumOfHand(hand) {
 
 // both increment player/dealer score functions taken from - https://github.com/Code-Institute-Solutions/JS-Essentials-Project/blob/master/13-Tidying%20Up/script.js
 // this function accumulates hands won by player
-
 function incrementPlayerScore() {
-
     var oldScore = $("#player-h-won").html();
     $("#player-h-won").html(++oldScore);
 }
 
 // accumulates hands won by dealer
-
 function incrementDealerScore() {
-
     var oldScore = $("#dealer-h-won").html();
     $("#dealer-h-won").html(++oldScore);
 }
 
 // player choice hit or stand
-
 function hitOrStand(playerHand, dealerHand, deck) {
-
     $(".choice-area").addClass("d-flex");
     $(".choice-area").html(`<button type="button" class="btn btn-lg btn-primary btn-responsive" id="btn-player-hit">Hit</button><button type="button" class="btn btn-lg btn-primary btn-responsive" id="btn-player-stand">Stand</button>`);
     $("#btn-player-hit").click(() => {
@@ -212,20 +188,17 @@ function hitOrStand(playerHand, dealerHand, deck) {
 }
 
 // adds another card to hand from deck
-
 function hitHand(hand, deck) {
-    
     var card = deck.pop();
     hand.push(card);
     return hand;
 }
 
 // hits the dealer hand until sum is equal to or greater than 17
-
 function hitDealerUpToSixteen(dealerHand, deck) {
-
     var dealerCardOneJPG = getCardJPGName(dealerHand, 0);
     var dealerCardTwoJPG = getCardJPGName(dealerHand, 1);
+
     $("#dealer-hand").html(`<img src="assets/images/deck_of_cards/${dealerCardOneJPG}" height="200"><img src="assets/images/deck_of_cards/${dealerCardTwoJPG}" height="200">`);
 
     var dealerTotal = calculateSumOfHand(dealerHand);
@@ -239,9 +212,7 @@ function hitDealerUpToSixteen(dealerHand, deck) {
 }
 
 // calculates the winner of the hand and increments correct score
-
 function calculateWinner(playerHand, dealerHand) {
-
     var playerTotal = calculateSumOfHand(playerHand);
     var dealerTotal = calculateSumOfHand(dealerHand);
 
