@@ -2,6 +2,8 @@
 
 My goal here is to create an interactive single-player Blackjack card game that users, myself included, can play in their browser.
 
+[Live link to finished site](https://oniakuma96.github.io/Milestone-2---Blackjack/)
+
 ![Mockup](/assets/images/amiresponsiveblackjackms2.png)
 
 ## UX
@@ -66,8 +68,6 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 
 ### Existing Features
 
-- Navigation bar to move between the site's pages.
-
 - The Blackjack game itself.
     - Button for users to start the game.
     - How to play button takes users to how to play page.
@@ -76,6 +76,8 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
     - Buttons for player choices, hit and stand.
     - Score keeping function to keep track of hands won by player and dealer.
     - Play again button allowing users to go again without resetting score or refreshing page.
+
+- How to play modal activated by button
 
 - Contact form to contact development team by providing an email and message.
 
@@ -114,6 +116,9 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 - [GitHub Pages](https://pages.github.com/)
     - For deployment of my site. For full details check deployment section of readme
 
+- [Tiny PNG](https://tinypng.com/)
+    - For image compression
+
 ## Testing
 
 To validate my code I used [W3 HTML validator](https://validator.w3.org/), [Jigsaw validator](https://jigsaw.w3.org/css-validator/), and [Esprima Syntax Validator](https://esprima.org/demo/validate.html)
@@ -136,9 +141,13 @@ I have also tested on an iPad, a Macbook Air, and my mobile phone (Samsung Galax
     - After filling in correct fields you are alerted that your message has been sent and the boxes you filled in are reset to blank to indicated everything worked
     - You are alerted if your message failed to send
 
+- Testing user stories
+    - 
+
 ### Bugs discovered
 
 - Bug in the game - the calculate sum of hand function doesn't correctly if the first card in hand is Ace. It should automatically change the value to 1 but will bust instead
+    - Altered calculate sum of hand function from blackjack.js. Bug above is fixed but now the game will not correctly bust the player sometimes
 
 ## Deployment
 

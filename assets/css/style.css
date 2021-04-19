@@ -74,9 +74,7 @@
 .game-area-container{
     height: 100vh;
     background-color: green;
-}
 
-.game-area-container{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -92,8 +90,8 @@
     padding-top: 20vh;
 }
 
-#dealer-hand{
-    padding-top: 5px;
+.score-keeper a{
+    margin: 10px;
 }
 
 #player-hand{
@@ -139,6 +137,11 @@
 
     .page-header{
         font-size: 9vw;
+    }
+
+    .score-keeper a{
+        font-size: 20px;
+        margin: 0;
     }
 
     #player-hand{
