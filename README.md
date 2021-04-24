@@ -32,13 +32,15 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 
 - As a user I want to play Blackjack but I can't remember the rules. I click on the how to play button and read the rules
 
+- As a user I am playing Blackjack by pressing start game. However looking at the hands dealt I realise I don't know how to play. I can navigate to the homescreen and read how to play.
+
 - As a user I have noticed a bug in the game that I want to report. I click on Contact Us and fill the form in with my email and bug report. I click send and get alerted that my message has been sent
 
 - As a user I want to request a new feature. I go to the Contact Us page and fill out the form with my email and message
 
 ### Wireframes
 
-- These are the wireframes that I made for this project. Can be found in /assets/wireframes
+- These are the wireframes that I made for this project. Can be found in /assets/wireframes. Please note these were early plans I made before I started the development of the site and do not match the final product.
 
 ![Homepage Web](/assets/wireframes/aaastartgamescreenweb1920.png)
 
@@ -85,7 +87,7 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 
 - Betting system where the player can decide how much to wager for each hand from their chips.
 
-- Difficulty setting allowing user to decide dealer difficulty from a selection of choices.
+- Difficulty setting allowing user to decide dealer difficulty from a selection of choices. A more advanced dealer could look at the player's hand and strategize. However traditionally Blackjack dealers can't do this and must simply hit on 16.
 
 ## Technologies Used
 
@@ -107,7 +109,7 @@ tables at casinos to try recreate the feel of a casino. I will use images for th
 - [Google fonts](https://fonts.google.com/)
     - For a variety of fonts
 
-- [Font Awsome]()
+- [Font Awsome](https://fontawesome.com/)
     - For icons
 
 - [EmailJs](https://www.emailjs.com/)
@@ -141,13 +143,21 @@ I have also tested on an iPad, a Macbook Air, and my mobile phone (Samsung Galax
     - After filling in correct fields you are alerted that your message has been sent and the boxes you filled in are reset to blank to indicated everything worked
     - You are alerted if your message failed to send
 
+    - Here are some pictures of a simple test I ran for my contact form and automated email using EmailJs.
+    - ![Contact form](/assets/images/testemailone.png)
+    - ![Conformation](/assets/images/testemailtwo.png)
+    - ![Email recieved](/assets/images/testemailthree.png)
+
 - Testing user stories
-    - 
+    - As a user I want to play Blackjack. From the homepage I can click the play game button and begin playing.
+    - As a user I want to play Blackjack but I can't remember the rules. From the homepage I can click the how to play button and read the rules on the modal which is brought to the front. Once I am ready I click the cross in the top right to exit and I can play the game.
+    - As a user I am playing Blackjack by pressing start game. However looking at the hands dealt I realise I don't know how to play. I can navigate to the homescreen by clicking the home icon in the top left. Then I can read the rules by clicking the how to play button and bringing the modal to the front.
+    - As a user I have noticed a bug in the game that I want to report. I see the alert at the bottom of the page and click where it tells me to click. I see some fields are required so I make sure to fill those out and I click submit. I see a conformation message that my message has been sent.
 
 ### Bugs discovered
 
 - Bug in the game - the calculate sum of hand function doesn't correctly if the first card in hand is Ace. It should automatically change the value to 1 but will bust instead
-    - Altered calculate sum of hand function from blackjack.js. Bug above is fixed but now the game will not correctly bust the player sometimes
+    - Altered calculate sum of hand function from blackjack.js. Bug above is fixed but now a new bug is present where the game will not correctly bust the player sometimes. The issue is still when an ace is in hand.
 
 ## Deployment
 
